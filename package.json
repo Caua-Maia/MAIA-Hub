@@ -1,0 +1,15 @@
+{
+  "name": "maia-hub",
+  "private": true,
+  "packageManager": "pnpm@10.15.1",
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp", "@prisma/engines", "prisma", "@prisma/client"]
+  },
+  "scripts": {
+    "build:shared": "corepack pnpm --filter @maia-hub/shared build",
+    "dev": "corepack pnpm build:shared && corepack pnpm --parallel --filter @maia-hub/web --filter @maia-hub/api dev",
+    "dev:web": "corepack pnpm build:shared && corepack pnpm --filter @maia-hub/web dev",
+    "dev:api": "corepack pnpm build:shared && corepack pnpm --filter @maia-hub/api dev",
+    "prisma:generate": "corepack pnpm --filter @maia-hub/api prisma:generate"
+  }
+}
